@@ -7,11 +7,16 @@
   user-select: none; /* Standard syntax */
 }
 html,
-body {
+body,
+#app {
+  width: 100%;
   background-color: #f2f4fa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-div {
+.background {
   background-color: white;
 }
 

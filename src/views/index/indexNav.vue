@@ -1,13 +1,9 @@
-<script setup>
-const click = () => {
-  console.log(location.hostname)
-}
-</script>
+<script setup></script>
 <template>
-  <div class="header">
+  <div class="header background">
     <a href="/" class="logo">EditIamge<span>.cn</span></a>
     <div class="nav">
-      <ul @click="click">
+      <ul>
         <li>
           <RouterLink to="/" :class="{ click: $route.path === '/' }">压缩图片</RouterLink>
         </li>
@@ -60,6 +56,9 @@ const click = () => {
       bottom: -10px;
       color: rgb(17, 59, 123);
     }
+    &:hover {
+      font-size: 30px;
+    }
     span {
       font-size: 10px;
     }
@@ -87,7 +86,6 @@ const click = () => {
           &:hover {
             color: rgb(17, 108, 255);
             font-weight: 777;
-            text-shadow: 0px 0px 27px rgb(17, 108, 255);
           }
         }
       }
@@ -97,7 +95,6 @@ const click = () => {
     font-weight: 777;
     color: rgb(17, 108, 255) !important;
     border-bottom: 2px solid rgb(17, 108, 255);
-    text-shadow: 0px 0px 27px rgba(17, 108, 255, 0.756);
   }
 }
 </style>
