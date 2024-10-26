@@ -5,7 +5,7 @@ const click = () => {
 </script>
 <template>
   <div class="header">
-    <div class="logo">EditIamge<span>.cn</span></div>
+    <a href="/" class="logo">EditIamge<span>.cn</span></a>
     <div class="nav">
       <ul @click="click">
         <li>
@@ -17,38 +17,48 @@ const click = () => {
         <li>
           <RouterLink to="/2" :class="{ click: $route.path === '/2' }">图片水印</RouterLink>
         </li>
+        <li>
+          <RouterLink to="/2" :class="{ click: $route.path === '/2' }">在线帮助</RouterLink>
+        </li>
       </ul>
     </div>
-    <div class="show"></div>
   </div>
 </template>
 <style lang="less" scoped>
 .header {
   width: 100%;
   display: flex;
-  height: 70px;
+  height: 88px;
   justify-content: center;
   align-items: center;
   padding: 10px 20px;
   box-sizing: border-box;
-  .logo,
+  border-bottom: 5px dashed rgb(17, 108, 255);
+  font-size: 20px;
   .show {
-    width: 200px;
+    position: relative;
+    &:hover {
+      .wechatimg {
+        display: block;
+      }
+    }
   }
   .logo {
-    // text-shadow: 8px 3px 6px rgb(17, 108, 255);
-    font-size: 30px;
-    font-weight: 777;
     color: rgb(17, 108, 255);
-    // padding: 0 20px;
     position: relative;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    transition: all 0.5s;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 888;
+    font-size: 27px;
     &::before {
-      content: '免费图片处理';
+      content: '免费在线编辑图片';
       position: absolute;
       left: 0;
-      font-size: 10px;
+      font-size: 11px;
       bottom: -10px;
+      color: rgb(17, 59, 123);
     }
     span {
       font-size: 10px;
@@ -71,21 +81,23 @@ const click = () => {
           display: block;
           width: 100%;
           height: 100%;
-          text-decoration: none;
-          font-size: 20px;
-          //   font-weight: 777;
-          color: black;
+          padding: 10px 0;
+          box-sizing: border-box;
           text-align: center;
           &:hover {
             color: rgb(17, 108, 255);
+            font-weight: 777;
+            text-shadow: 0px 0px 27px rgb(17, 108, 255);
           }
         }
       }
     }
   }
   .click {
+    font-weight: 777;
     color: rgb(17, 108, 255) !important;
     border-bottom: 2px solid rgb(17, 108, 255);
+    text-shadow: 0px 0px 27px rgba(17, 108, 255, 0.756);
   }
 }
 </style>
