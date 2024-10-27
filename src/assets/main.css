@@ -24,3 +24,38 @@ a {
   text-decoration: none;
   color: black;
 }
+
+.beforedit,
+.afteredit {
+  width: 100%;
+  display: flex;
+  button {
+    width: 100px;
+    height: 100%;
+    background-color: rgb(17, 108, 255);
+    color: white;
+    font-size: 15px;
+    font-weight: 888;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    border-radius: 10px;
+    transition: all 0.5s;
+    &:hover {
+      background-color: rgb(12, 66, 152);
+    }
+  }
+}
+.beforedit {
+  align-items: center;
+  justify-content: space-between;
+}
+.afteredit {
+  align-items: center;
+  justify-content: space-around;
+}
+.leftclick {
+  font-weight: 888;
+  color: rgb(17, 108, 255) !important;
+}

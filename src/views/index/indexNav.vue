@@ -5,16 +5,24 @@
     <div class="nav">
       <ul>
         <li>
-          <RouterLink to="/" :class="{ click: $route.path === '/' }">压缩图片</RouterLink>
+          <RouterLink to="/" :class="{ click: $route.matched[1].path === '/' }"
+            >压缩图片</RouterLink
+          >
         </li>
         <li>
-          <RouterLink to="/2" :class="{ click: $route.path === '/2' }">修改尺寸</RouterLink>
+          <RouterLink to="/2" :class="{ click: $route.matched[1].path === '/2' }"
+            >修改尺寸</RouterLink
+          >
         </li>
         <li>
-          <RouterLink to="/2" :class="{ click: $route.path === '/2' }">图片水印</RouterLink>
+          <RouterLink to="/2" :class="{ click: $route.matched[1].path === '/2' }"
+            >图片水印</RouterLink
+          >
         </li>
         <li>
-          <RouterLink to="/2" :class="{ click: $route.path === '/2' }">在线帮助</RouterLink>
+          <RouterLink to="/2" :class="{ click: $route.matched[1].path === '/2' }"
+            >在线帮助</RouterLink
+          >
         </li>
       </ul>
     </div>

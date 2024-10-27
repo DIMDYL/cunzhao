@@ -14,7 +14,6 @@
   height: 277px;
   overflow: hidden;
   box-sizing: border-box;
-  margin-top: 10px;
   display: flex;
   align-items: center;
   justify-content: center;

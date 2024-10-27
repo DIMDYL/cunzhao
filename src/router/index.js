@@ -5,13 +5,42 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      meta: { title: '压缩图片' },
-      component: () => import('@/views/index/index.vue')
-    },
-    {
-      path: '/2',
-      meta: { title: '修改尺寸' },
-      component: () => import('@/views/index/index.vue')
+      meta: { title: 'EditImage' },
+      component: () => import('@/views/index/index.vue'),
+      children: [
+        {
+          path: '/',
+          component: () => import('@/views/compress/index.vue'),
+          children: [
+            {
+              path: '/',
+              meta: { title: '压缩到指定kb' },
+              component: () => import('@/views/compress/compresskb/index.vue')
+            },
+            {
+              path: '/compressmb',
+              meta: { title: '压缩到指定mb' },
+              component: () => import('@/views/compress/compressmb/index.vue')
+            }
+          ]
+        },
+        {
+          path: '/2',
+          component: () => import('@/views/compress/index.vue'),
+          children: [
+            {
+              path: '/2',
+              meta: { title: '压缩到指定kb' },
+              component: () => import('@/views/compress/compresskb/index.vue')
+            },
+            {
+              path: '/compressmb2',
+              meta: { title: '压缩到指定mb' },
+              component: () => import('@/views/compress/compressmb/index.vue')
+            }
+          ]
+        }
+      ]
     }
   ]
 })
