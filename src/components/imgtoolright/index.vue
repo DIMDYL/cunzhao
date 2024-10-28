@@ -1,5 +1,5 @@
 <script setup>
-import { ref, watch, defineModel } from 'vue'
+import { ref, watch } from 'vue'
 import imgtoolIntroduce from './imgtoolIntroduce.vue'
 import { Delete, Plus, ZoomIn } from '@element-plus/icons-vue'
 const props = defineProps({
@@ -45,6 +45,9 @@ const handleExceed = () => {
 const emit = defineEmits(['update-filelist', 'clearpath'])
 watch(fileList, (newVal) => {
   emit('update-filelist', newVal)
+  if (newVal.length == 0) {
+    emit('clearpath', null)
+  }
 })
 // 再次处理
 const clearimglist = () => {
