@@ -25,18 +25,28 @@ const router = createRouter({
           ]
         },
         {
-          path: '/2',
-          component: () => import('@/views/compress/index.vue'),
+          path: '/changesize',
+          component: () => import('@/views/changesize/index.vue'),
           children: [
             {
-              path: '/2',
-              meta: { title: '压缩到指定kb' },
-              component: () => import('@/views/compress/compresskb/index.vue')
+              path: '/changesize',
+              meta: { title: '一寸照片' },
+              component: () => import('@/views/changesize/oneinch/index.vue')
             },
             {
-              path: '/compressmb2',
-              meta: { title: '压缩到指定mb' },
-              component: () => import('@/views/compress/compressmb/index.vue')
+              path: '/twoinchessmall',
+              meta: { title: '小二寸照片' },
+              component: () => import('@/views/changesize/twoinchessmall/index.vue')
+            },
+            {
+              path: '/twoinchesinsize',
+              meta: { title: '大二寸照片' },
+              component: () => import('@/views/changesize/twoinchesinsize/index.vue')
+            },
+            {
+              path: '/size',
+              meta: { title: '自定义尺寸' },
+              component: () => import('@/views/changesize/size/index.vue')
             }
           ]
         }

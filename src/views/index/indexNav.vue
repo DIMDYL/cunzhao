@@ -10,11 +10,11 @@
           >
         </li>
         <li>
-          <RouterLink to="/2" :class="{ click: $route.matched[1].path === '/2' }"
+          <RouterLink to="/changesize" :class="{ click: $route.matched[1].path === '/changesize' }"
             >修改尺寸</RouterLink
           >
         </li>
-        <li>
+        <!-- <li>
           <RouterLink to="/2" :class="{ click: $route.matched[1].path === '/2' }"
             >图片水印</RouterLink
           >
@@ -23,7 +23,7 @@
           <RouterLink to="/2" :class="{ click: $route.matched[1].path === '/2' }"
             >在线帮助</RouterLink
           >
-        </li>
+        </li> -->
       </ul>
     </div>
   </div>

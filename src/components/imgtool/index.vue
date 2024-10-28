@@ -18,8 +18,7 @@
 .cotent {
   width: 100%;
   height: calc(100vh - 150px);
-  max-height: 666px;
-  min-height: 400px;
+  // max-height: 666px;
   display: flex;
   .left,
   .right {
@@ -69,5 +68,8 @@
 }
 .example-showcase .el-loading-mask {
   z-index: 9;
+}
+/deep/ .el-dialog {
+  width: 80% !important;
 }
 </style>

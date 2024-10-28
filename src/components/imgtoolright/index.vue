@@ -1,11 +1,13 @@
 <script setup>
-import { ref, watch } from 'vue'
+import { ref, watch, defineModel } from 'vue'
 import imgtoolIntroduce from './imgtoolIntroduce.vue'
 import { Delete, Plus, ZoomIn } from '@element-plus/icons-vue'
 const props = defineProps({
   loading: Boolean,
-  word: String
+  word: String,
+  zippath: String
 })
+
 // 是否展示
 const show = ref(false)
 const dialogImageUrl = ref('')
@@ -31,18 +33,24 @@ watch(fileList, (newValue) => {
     show.value = false
   }
 })
+// 查看图片详情
 const handlePictureCardPreview = (file) => {
   dialogImageUrl.value = file.url
   dialogVisible.value = true
-  console.log(file.url)
 }
 // 上传超出限制
 const handleExceed = () => {
   ElMessage.error(`上传总限制为50张图片`)
 }
-// const clearimglist = () => {
-//   fileList.value = []
-//}
+const emit = defineEmits(['update-filelist', 'clearpath'])
+watch(fileList, (newVal) => {
+  emit('update-filelist', newVal)
+})
+// 再次处理
+const clearimglist = () => {
+  fileList.value = []
+  emit('clearpath', null)
+}
 </script>
 <template>
   <div class="operate" v-loading="loading" :element-loading-text="prompt">
@@ -88,13 +96,13 @@ const handleExceed = () => {
         </el-dialog>
       </div>
       <div class="bottom">
-        <div class="beforedit">
+        <div class="beforedit" v-if="zippath == null">
           <slot name="before"></slot>
         </div>
-        <!-- <div class="afteredit">
+        <div class="afteredit" v-if="zippath !== null">
           <button @click="clearimglist">再次处理</button>
-          <button>下载图片</button>
-        </div> -->
+          <button @click="download"><a :href="zippath">下载图片</a></button>
+        </div>
       </div>
     </div>
   </div>
@@ -149,5 +157,10 @@ const handleExceed = () => {
 }
 .example-showcase .el-loading-mask {
   z-index: 9;
+}
+.afteredit {
+  a {
+    color: white;
+  }
 }
 </style>

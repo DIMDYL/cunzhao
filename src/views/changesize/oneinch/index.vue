@@ -1,8 +1,9 @@
 <script setup>
 import { ref } from 'vue'
-import { compress } from '@/api/api.js'
 import imgtoolright from '@/components/imgtoolright/index.vue'
-const num = ref(1)
+import { imgsize } from '@/api/api.js'
+const width = ref(295)
+const height = ref(413)
 const loading = ref(false)
 const filelist = ref(null)
 const zip = ref(null)
@@ -13,10 +14,11 @@ const handle = async () => {
   filelist.value.forEach((file) => {
     fd.append('files', file.raw)
   })
-  num.value = Number(num.value)
-  // 添加图片
-  fd.append('targetSize', num.value * 1024)
-  const { data } = await compress(fd)
+  width.value = Number(width.value)
+  height.value = Number(height.value)
+  fd.append('width', width.value)
+  fd.append('height', height.value)
+  const { data } = await imgsize(fd)
   console.log(data)
   loading.value = false
   zip.value = data.zip
@@ -31,15 +33,18 @@ const clearpath = (value) => {
 <template>
   <imgtoolright
     :loading="loading"
-    word="压缩到指定mb"
+    word="一寸照片"
     :zippath="zip"
     @update-filelist="updateFileList"
     @clearpath="clearpath"
   >
     <template #before>
       <p>
-        每张图片均小于：<el-input-number v-model="num" :min="1" :max="1024" />
-        mb
+        宽度：<el-input-number v-model="width" :disabled="true" /> 像素 - 高度：<el-input-number
+          v-model="height"
+          :disabled="true"
+        />
+        像素
       </p>
       <button @click="handle" v-preventReClick>开始处理</button>
     </template>
