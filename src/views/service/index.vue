@@ -36,7 +36,12 @@
   border-radius: 10px;
   img {
     width: 300px;
+    cursor: pointer;
     margin-bottom: 20px;
+    transition: all 0.5s;
+    &:hover {
+      transform: scale(1.1); /* 鼠标悬停放大效果 */
+    }
   }
 
   h1 {
@@ -49,14 +54,14 @@
   .service {
     margin: 20px 0;
     padding: 15px;
-    border: 1px solid #ccc;
+    // border: 1px solid #ccc;
     border-radius: 8px;
     width: 80%;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    // box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.5s;
     cursor: pointer;
     &:hover {
-      transform: scale(1.02); /* 鼠标悬停放大效果 */
+      transform: scale(1.07); /* 鼠标悬停放大效果 */
     }
     h2 {
       margin-bottom: 10px;
