@@ -49,6 +49,11 @@ const router = createRouter({
               component: () => import('@/views/changesize/size/index.vue')
             }
           ]
+        },
+        {
+          path: '/service',
+          meta: { title: '其他服务' },
+          component: () => import('@/views/service/index.vue')
         }
       ]
     }

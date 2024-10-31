@@ -69,8 +69,8 @@
     display: flex;
     flex-direction: column;
     height: auto !important;
-    .li {
-      padding: 5px;
+    li {
+      padding: 10px !important;
     }
   }
   .cotent {

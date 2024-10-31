@@ -14,6 +14,11 @@
             >修改尺寸</RouterLink
           >
         </li>
+        <li>
+          <RouterLink to="/service" :class="{ click: $route.matched[1].path === '/service' }"
+            >其他服务</RouterLink
+          >
+        </li>
         <!-- <li>
           <RouterLink to="/2" :class="{ click: $route.matched[1].path === '/2' }"
             >图片水印</RouterLink
